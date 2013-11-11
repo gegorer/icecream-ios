@@ -1,18 +1,18 @@
 //
-//  SecondViewController.m
+//  FirstViewController.m
 //  icecream
 //
 //  Created by Shao Hang Kao on 2013/11/10.
 //  Copyright (c) 2013年 gegorer. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "ListViewController.h"
 
-@interface SecondViewController ()
+@interface ListViewController ()
 
 @end
 
-@implementation SecondViewController
+@implementation ListViewController
 
 - (void)viewDidLoad
 {

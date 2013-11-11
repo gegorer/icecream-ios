@@ -1,18 +1,18 @@
 //
-//  FirstViewController.m
+//  SecondViewController.m
 //  icecream
 //
 //  Created by Shao Hang Kao on 2013/11/10.
 //  Copyright (c) 2013年 gegorer. All rights reserved.
 //
 
-#import "FirstViewController.h"
+#import "MapViewController.h"
 
-@interface FirstViewController ()
+@interface MapViewController ()
 
 @end
 
-@implementation FirstViewController
+@implementation MapViewController
 
 - (void)viewDidLoad
 {
