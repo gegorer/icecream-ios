@@ -40,10 +40,19 @@ static Stores *_stores = nil;
     for (int i=0; i<[stores count]; i++) {
         Store *store = [stores objectAtIndex:i];
         if (aKeyword != nil) {
+            BOOL match = NO;
             NSRange range = [[store name] rangeOfString:aKeyword];
-            if (range.location == NSNotFound) {
-                continue;
+            if (range.location != NSNotFound) {
+                match = YES;
             }
+            if (!match) {
+                range = [[store addr] rangeOfString:aKeyword];
+            }
+            if (range.location != NSNotFound) {
+                match = YES;
+            }
+            if (!match)
+                continue;
         }
         [array addObject: store];
     }

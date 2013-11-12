@@ -23,7 +23,7 @@ NSArray *stores;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    stores = [[Stores singleton] fetchWithKeyword:nil];
+    stores = [[Stores singleton] fetchWithKeyword:@"台北"];
 }
 
 - (void)didReceiveMemoryWarning
