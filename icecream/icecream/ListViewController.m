@@ -7,9 +7,10 @@
 //
 
 #import "ListViewController.h"
+#import "Stores.h"
+#import "Store.h"
 
 @interface ListViewController ()
-
 @end
 
 @implementation ListViewController
@@ -17,10 +18,12 @@
 @synthesize storeList;
 @synthesize searchBar;
 
+NSArray *stores;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    stores = [[Stores singleton] fetchWithKeyword:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -30,7 +33,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return [stores count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -39,8 +42,9 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
-    cell.textLabel.text = @"全家便利商店";
-    cell.detailTextLabel.text = @"新竹市建中一路29號17F-1";
+    Store *store = [stores objectAtIndex:indexPath.row];
+    cell.textLabel.text = [store name];
+    cell.detailTextLabel.text = [store addr];
     return cell;
 }
 

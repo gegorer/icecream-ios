@@ -26,6 +26,11 @@
 		8348D1F418325695000DE086 /* all-shop.json in Resources */ = {isa = PBXBuildFile; fileRef = 8348D1F318325695000DE086 /* all-shop.json */; };
 		8348D1F9183257ED000DE086 /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8348D1F8183257ED000DE086 /* LoadingViewController.m */; };
 		8348D1FA183257ED000DE086 /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8348D1F8183257ED000DE086 /* LoadingViewController.m */; };
+		8348D1FD18325C43000DE086 /* Stores.m in Sources */ = {isa = PBXBuildFile; fileRef = 8348D1FC18325C43000DE086 /* Stores.m */; };
+		8348D1FE18325C43000DE086 /* Stores.m in Sources */ = {isa = PBXBuildFile; fileRef = 8348D1FC18325C43000DE086 /* Stores.m */; };
+		8348D20018326304000DE086 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8348D1FF18326304000DE086 /* libsqlite3.dylib */; };
+		8348D20318326532000DE086 /* Store.m in Sources */ = {isa = PBXBuildFile; fileRef = 8348D20218326532000DE086 /* Store.m */; };
+		8348D20418326532000DE086 /* Store.m in Sources */ = {isa = PBXBuildFile; fileRef = 8348D20218326532000DE086 /* Store.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +69,11 @@
 		8348D1F318325695000DE086 /* all-shop.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "all-shop.json"; path = "../external/icecream-data/all-shop.json"; sourceTree = "<group>"; };
 		8348D1F7183257ED000DE086 /* LoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingViewController.h; sourceTree = "<group>"; };
 		8348D1F8183257ED000DE086 /* LoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingViewController.m; sourceTree = "<group>"; };
+		8348D1FB18325C43000DE086 /* Stores.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stores.h; sourceTree = "<group>"; };
+		8348D1FC18325C43000DE086 /* Stores.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stores.m; sourceTree = "<group>"; };
+		8348D1FF18326304000DE086 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		8348D20118326532000DE086 /* Store.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Store.h; sourceTree = "<group>"; };
+		8348D20218326532000DE086 /* Store.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Store.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8348D20018326304000DE086 /* libsqlite3.dylib in Frameworks */,
 				830F2D39182F559400A4B8D6 /* CoreGraphics.framework in Frameworks */,
 				830F2D3B182F559400A4B8D6 /* UIKit.framework in Frameworks */,
 				830F2D37182F559400A4B8D6 /* Foundation.framework in Frameworks */,
@@ -113,6 +124,7 @@
 		830F2D35182F559400A4B8D6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8348D1FF18326304000DE086 /* libsqlite3.dylib */,
 				830F2D36182F559400A4B8D6 /* Foundation.framework */,
 				830F2D38182F559400A4B8D6 /* CoreGraphics.framework */,
 				830F2D3A182F559400A4B8D6 /* UIKit.framework */,
@@ -134,6 +146,10 @@
 				830F2D4F182F559400A4B8D6 /* ListViewController.m */,
 				830F2D51182F559400A4B8D6 /* MapViewController.h */,
 				830F2D52182F559400A4B8D6 /* MapViewController.m */,
+				8348D1FB18325C43000DE086 /* Stores.h */,
+				8348D1FC18325C43000DE086 /* Stores.m */,
+				8348D20118326532000DE086 /* Store.h */,
+				8348D20218326532000DE086 /* Store.m */,
 				830F2D54182F559400A4B8D6 /* Images.xcassets */,
 				830F2D3D182F559400A4B8D6 /* Supporting Files */,
 			);
@@ -279,6 +295,8 @@
 				830F2D53182F559400A4B8D6 /* MapViewController.m in Sources */,
 				830F2D47182F559400A4B8D6 /* AppDelegate.m in Sources */,
 				8348D1F9183257ED000DE086 /* LoadingViewController.m in Sources */,
+				8348D20318326532000DE086 /* Store.m in Sources */,
+				8348D1FD18325C43000DE086 /* Stores.m in Sources */,
 				830F2D50182F559400A4B8D6 /* ListViewController.m in Sources */,
 				830F2D43182F559400A4B8D6 /* main.m in Sources */,
 			);
@@ -288,8 +306,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8348D1FE18325C43000DE086 /* Stores.m in Sources */,
 				830F2D68182F559400A4B8D6 /* icecreamTests.m in Sources */,
 				8348D1FA183257ED000DE086 /* LoadingViewController.m in Sources */,
+				8348D20418326532000DE086 /* Store.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

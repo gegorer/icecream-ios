@@ -7,6 +7,7 @@
 //
 
 #import "LoadingViewController.h"
+#import "Stores.h"
 
 @interface LoadingViewController ()
 
@@ -30,7 +31,13 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [self performSegueWithIdentifier:@"loadCompleteSegue" sender:self];
+    dispatch_queue_t queue = dispatch_queue_create("org.gegorer.icecream", NULL);
+    dispatch_async(queue, ^{
+        [[Stores singleton] checkData];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self performSegueWithIdentifier:@"loadCompleteSegue" sender:self];
+        });
+    });
 }
 
 - (void)didReceiveMemoryWarning
