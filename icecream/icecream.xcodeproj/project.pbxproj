@@ -23,6 +23,9 @@
 		830F2D5E182F559400A4B8D6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 830F2D3A182F559400A4B8D6 /* UIKit.framework */; };
 		830F2D66182F559400A4B8D6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 830F2D64182F559400A4B8D6 /* InfoPlist.strings */; };
 		830F2D68182F559400A4B8D6 /* icecreamTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 830F2D67182F559400A4B8D6 /* icecreamTests.m */; };
+		8348D1F418325695000DE086 /* all-shop.json in Resources */ = {isa = PBXBuildFile; fileRef = 8348D1F318325695000DE086 /* all-shop.json */; };
+		8348D1F9183257ED000DE086 /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8348D1F8183257ED000DE086 /* LoadingViewController.m */; };
+		8348D1FA183257ED000DE086 /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8348D1F8183257ED000DE086 /* LoadingViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +61,9 @@
 		830F2D63182F559400A4B8D6 /* icecreamTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "icecreamTests-Info.plist"; sourceTree = "<group>"; };
 		830F2D65182F559400A4B8D6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		830F2D67182F559400A4B8D6 /* icecreamTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = icecreamTests.m; sourceTree = "<group>"; };
+		8348D1F318325695000DE086 /* all-shop.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "all-shop.json"; path = "../external/icecream-data/all-shop.json"; sourceTree = "<group>"; };
+		8348D1F7183257ED000DE086 /* LoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingViewController.h; sourceTree = "<group>"; };
+		8348D1F8183257ED000DE086 /* LoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +93,7 @@
 		830F2D2A182F559400A4B8D6 = {
 			isa = PBXGroup;
 			children = (
+				8348D1F6183256DC000DE086 /* data */,
 				830F2D3C182F559400A4B8D6 /* icecream */,
 				830F2D61182F559400A4B8D6 /* icecreamTests */,
 				830F2D35182F559400A4B8D6 /* Frameworks */,
@@ -121,6 +128,8 @@
 				830F2D46182F559400A4B8D6 /* AppDelegate.m */,
 				830F2D48182F559400A4B8D6 /* Main_iPhone.storyboard */,
 				830F2D4B182F559400A4B8D6 /* Main_iPad.storyboard */,
+				8348D1F7183257ED000DE086 /* LoadingViewController.h */,
+				8348D1F8183257ED000DE086 /* LoadingViewController.m */,
 				830F2D4E182F559400A4B8D6 /* ListViewController.h */,
 				830F2D4F182F559400A4B8D6 /* ListViewController.m */,
 				830F2D51182F559400A4B8D6 /* MapViewController.h */,
@@ -158,6 +167,14 @@
 				830F2D64182F559400A4B8D6 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8348D1F6183256DC000DE086 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				8348D1F318325695000DE086 /* all-shop.json */,
+			);
+			name = data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,6 +253,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8348D1F418325695000DE086 /* all-shop.json in Resources */,
 				830F2D4D182F559400A4B8D6 /* Main_iPad.storyboard in Resources */,
 				830F2D55182F559400A4B8D6 /* Images.xcassets in Resources */,
 				830F2D4A182F559400A4B8D6 /* Main_iPhone.storyboard in Resources */,
@@ -260,6 +278,7 @@
 			files = (
 				830F2D53182F559400A4B8D6 /* MapViewController.m in Sources */,
 				830F2D47182F559400A4B8D6 /* AppDelegate.m in Sources */,
+				8348D1F9183257ED000DE086 /* LoadingViewController.m in Sources */,
 				830F2D50182F559400A4B8D6 /* ListViewController.m in Sources */,
 				830F2D43182F559400A4B8D6 /* main.m in Sources */,
 			);
@@ -270,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				830F2D68182F559400A4B8D6 /* icecreamTests.m in Sources */,
+				8348D1FA183257ED000DE086 /* LoadingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
