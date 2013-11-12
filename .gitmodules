@@ -1,0 +1,3 @@
+[submodule "external/icecream-data"]
+	path = external/icecream-data
+	url = git@github.com:gegorer/icecream-data.git
