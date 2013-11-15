@@ -12,11 +12,15 @@
 
 @synthesize name;
 @synthesize addr;
+@synthesize lat;
+@synthesize lon;
 
-- (Store *) initWithName:(NSString *)aName andAddr:(NSString *)aAddr {
+- (Store *) initWithName:(NSString *)aName andAddr:(NSString *)aAddr andLat:(double)aLat andLon:(double)aLon {
     if (self = [super init]) {
         self.name = aName;
         self.addr = aAddr;
+        self.lat = aLat;
+        self.lon = aLon;
     }
     
     return self;

@@ -89,7 +89,14 @@ static Stores *_stores = nil;
         
         for (int i=0; i<[storesRaw count]; i++) {
             NSDictionary *storeRaw = [storesRaw objectAtIndex:i];
-            Store *store = [[Store alloc] initWithName:[storeRaw objectForKey:@"NAME"] andAddr:[storeRaw objectForKey:@"addr"]];
+            NSString *name = [storeRaw objectForKey:@"NAME"];
+            NSString *addr = [storeRaw objectForKey:@"addr"];
+            NSNumber *lat = [storeRaw objectForKey:@"py"];
+            NSNumber *lon = [storeRaw objectForKey:@"px"];
+            Store *store = [[Store alloc] initWithName:name
+                                               andAddr:addr
+                                                andLat:[lat doubleValue]
+                                                andLon:[lon doubleValue]];
             [stores addObject:store];
         }
         NSLog(@"Saved %d stores", [stores count]);

@@ -8,6 +8,8 @@
 
 #import "MapViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
+#import "Stores.h"
+#import "Store.h"
 
 @interface MapViewController ()
 
@@ -29,12 +31,17 @@
     mapView.myLocationEnabled = YES;
     self.view = mapView;
     
-    // Creates a marker in the center of the map.
-    GMSMarker *marker = [[GMSMarker alloc] init];
-    marker.position = CLLocationCoordinate2DMake(25.1, 121.5);
-    marker.title = @"全家重慶店";
-    marker.snippet = @"台北市中正區重慶南路一段58號";
-    marker.map = mapView;
+    // TODO: load async
+    NSArray *stores = [[Stores singleton] fetchWithKeyword:nil];
+    for (int i=0; i<[stores count]; i++) {
+        Store *store = [stores objectAtIndex:i];
+        
+        GMSMarker *marker = [[GMSMarker alloc] init];
+        marker.position = CLLocationCoordinate2DMake([store lat], [store lon]);
+        marker.title = [store name];
+        marker.snippet = [store addr];
+        marker.map = mapView;
+    }
 
 }
 

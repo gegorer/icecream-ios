@@ -13,7 +13,9 @@
 
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *addr;
+@property (nonatomic, assign) double lat;
+@property (nonatomic, assign) double lon;
 
-- (Store *) initWithName:(NSString *)aName andAddr:(NSString *)aAddr;
+- (Store *) initWithName:(NSString *)aName andAddr:(NSString *)aAddr andLat:(double)aLat andLon:(double)aLon;
 
 @end
