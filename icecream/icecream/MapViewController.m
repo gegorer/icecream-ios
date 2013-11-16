@@ -11,22 +11,28 @@
 #import "Stores.h"
 #import "Store.h"
 
+#define DEFAULT_ZOOM 14
+
 @interface MapViewController ()
 
 @end
 
 @implementation MapViewController {
     GMSMapView *mapView;
+    GMSCameraPosition *camera;
+    double centerLat;
+    double centerLon;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Create a GMSCameraPosition that tells the map to display the
-    // coordinate -33.86,151.20 at zoom level 6.
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:25.1
-                                                            longitude:121.5
-                                                                 zoom:13];
+    if (camera == nil) {
+        camera = [GMSCameraPosition cameraWithLatitude:25.1
+                                             longitude:121.5
+                                                  zoom:DEFAULT_ZOOM];
+    }
+
     mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
     mapView.myLocationEnabled = YES;
     self.view = mapView;
@@ -41,6 +47,10 @@
         marker.title = [store name];
         marker.snippet = [store addr];
         marker.map = mapView;
+        
+        if (marker.position.latitude == centerLat && marker.position.longitude == centerLon) {
+            mapView.selectedMarker = marker;
+        }
     }
 
 }
@@ -50,5 +60,30 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void) centerAtLat:(double)aLat andLon:(double)aLon {
+
+    centerLat = aLat;
+    centerLon = aLon;
+
+    camera = [GMSCameraPosition cameraWithLatitude:aLat
+                                         longitude:aLon
+                                              zoom:DEFAULT_ZOOM];
+
+    if (mapView == nil) {
+        return;
+    }
+
+    mapView.camera = camera;
+    
+    for (int i=0; i<[mapView.markers count]; i++) {
+        GMSMarker *marker = (GMSMarker *)[mapView.markers objectAtIndex:i];
+        if (marker.position.latitude == centerLat && marker.position.longitude == centerLon) {
+            mapView.selectedMarker = marker;
+            break;
+        }
+    }
+}
+
 
 @end

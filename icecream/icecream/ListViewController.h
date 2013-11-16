@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ListViewController : UIViewController <UITableViewDataSource>
+@interface ListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, retain) IBOutlet UITableView *storeList;
 @property (nonatomic, retain) IBOutlet UISearchBar *searchBar;

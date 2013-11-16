@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A2093" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="5Ge-gW-O86">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--List View Controller - First-->
@@ -29,6 +29,7 @@
                                 <sections/>
                                 <connections>
                                     <outlet property="dataSource" destination="CZ4-MO-1fc" id="yaK-OV-HK8"/>
+                                    <outlet property="delegate" destination="CZ4-MO-1fc" id="BIl-f0-dRZ"/>
                                 </connections>
                             </tableView>
                         </subviews>

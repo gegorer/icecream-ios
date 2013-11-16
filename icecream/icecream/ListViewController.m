@@ -7,6 +7,7 @@
 //
 
 #import "ListViewController.h"
+#import "MapViewController.h"
 #import "Stores.h"
 #import "Store.h"
 
@@ -46,6 +47,14 @@ NSArray *stores;
     cell.textLabel.text = [store name];
     cell.detailTextLabel.text = [store addr];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    Store *store = [stores objectAtIndex:indexPath.row];
+    MapViewController *vc = (MapViewController *)[self.tabBarController.viewControllers objectAtIndex:1];
+    [vc centerAtLat:store.lat andLon:store.lon];
+    self.tabBarController.selectedViewController = vc;
 }
 
 @end

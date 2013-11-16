@@ -10,4 +10,6 @@
 
 @interface MapViewController : UIViewController
 
+- (void) centerAtLat:(double)aLat andLon:(double)aLon;
+
 @end
