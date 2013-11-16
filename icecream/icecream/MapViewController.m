@@ -35,6 +35,8 @@
 
     mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
     mapView.myLocationEnabled = YES;
+    mapView.settings.myLocationButton = YES;
+    mapView.settings.compassButton = YES;
     self.view = mapView;
     
     // TODO: load async
