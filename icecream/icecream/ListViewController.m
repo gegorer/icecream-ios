@@ -17,14 +17,14 @@
 @implementation ListViewController
 
 @synthesize storeList;
-@synthesize searchBar;
+@synthesize storeSearchBar;
 
 NSArray *stores;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    stores = [[Stores singleton] fetchWithKeyword:@"台北"];
+    stores = [[Stores singleton] fetchWithKeyword:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -33,6 +33,7 @@ NSArray *stores;
     // Dispose of any resources that can be recreated.
 }
 
+#pragma UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [stores count];
 }
@@ -49,6 +50,7 @@ NSArray *stores;
     return cell;
 }
 
+#pragma UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     Store *store = [stores objectAtIndex:indexPath.row];
@@ -57,4 +59,18 @@ NSArray *stores;
     self.tabBarController.selectedViewController = vc;
 }
 
+#pragma UISearchBarDelegate
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    if (searchText != nil && ![searchText isEqualToString:@""]) {
+        stores = [[Stores singleton] fetchWithKeyword:searchText];
+    }
+    else {
+        stores = [[Stores singleton] fetchWithKeyword:nil];
+    }
+    [storeList reloadData];
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder];
+}
 @end
