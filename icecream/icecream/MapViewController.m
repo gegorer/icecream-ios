@@ -33,11 +33,14 @@
                                                   zoom:DEFAULT_ZOOM];
     }
 
-    mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
+    mapView = [GMSMapView mapWithFrame:self.view.bounds camera:camera];
+    CGRect rect = mapView.frame;
+    rect.size.width -= 40.0f;
+    mapView.frame = rect;
     mapView.myLocationEnabled = YES;
     mapView.settings.myLocationButton = YES;
     mapView.settings.compassButton = YES;
-    self.view = mapView;
+    [self.view addSubview:mapView];
     
     // TODO: load async
     NSArray *stores = [[Stores singleton] fetchWithKeyword:nil];

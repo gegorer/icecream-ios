@@ -47,6 +47,10 @@
 		8348D20018326304000DE086 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8348D1FF18326304000DE086 /* libsqlite3.dylib */; };
 		8348D20318326532000DE086 /* Store.m in Sources */ = {isa = PBXBuildFile; fileRef = 8348D20218326532000DE086 /* Store.m */; };
 		8348D20418326532000DE086 /* Store.m in Sources */ = {isa = PBXBuildFile; fileRef = 8348D20218326532000DE086 /* Store.m */; };
+		83606B321837AABE000E0ABE /* ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83606B311837AABE000E0ABE /* ECSlidingViewController.m */; };
+		83606B331837AABE000E0ABE /* ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83606B311837AABE000E0ABE /* ECSlidingViewController.m */; };
+		83606B361837ACD3000E0ABE /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83606B351837ACD3000E0ABE /* MainViewController.m */; };
+		83606B371837ACD3000E0ABE /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83606B351837ACD3000E0ABE /* MainViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +108,10 @@
 		8348D1FF18326304000DE086 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		8348D20118326532000DE086 /* Store.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Store.h; sourceTree = "<group>"; };
 		8348D20218326532000DE086 /* Store.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Store.m; sourceTree = "<group>"; };
+		83606B301837AABE000E0ABE /* ECSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingViewController.h; sourceTree = "<group>"; };
+		83606B311837AABE000E0ABE /* ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingViewController.m; sourceTree = "<group>"; };
+		83606B341837ACD3000E0ABE /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		83606B351837ACD3000E0ABE /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +156,7 @@
 		830F2D2A182F559400A4B8D6 = {
 			isa = PBXGroup;
 			children = (
+				83606B2E1837AA95000E0ABE /* external */,
 				8348D1F6183256DC000DE086 /* data */,
 				830F2D3C182F559400A4B8D6 /* icecream */,
 				830F2D61182F559400A4B8D6 /* icecreamTests */,
@@ -198,6 +207,8 @@
 				830F2D46182F559400A4B8D6 /* AppDelegate.m */,
 				830F2D48182F559400A4B8D6 /* Main_iPhone.storyboard */,
 				830F2D4B182F559400A4B8D6 /* Main_iPad.storyboard */,
+				83606B341837ACD3000E0ABE /* MainViewController.h */,
+				83606B351837ACD3000E0ABE /* MainViewController.m */,
 				8348D1F7183257ED000DE086 /* LoadingViewController.h */,
 				8348D1F8183257ED000DE086 /* LoadingViewController.m */,
 				830F2D4E182F559400A4B8D6 /* ListViewController.h */,
@@ -249,6 +260,24 @@
 				8348D1F318325695000DE086 /* all-shop.json */,
 			);
 			name = data;
+			sourceTree = "<group>";
+		};
+		83606B2E1837AA95000E0ABE /* external */ = {
+			isa = PBXGroup;
+			children = (
+				83606B2F1837AABE000E0ABE /* ECSlidingViewController */,
+			);
+			name = external;
+			sourceTree = "<group>";
+		};
+		83606B2F1837AABE000E0ABE /* ECSlidingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				83606B301837AABE000E0ABE /* ECSlidingViewController.h */,
+				83606B311837AABE000E0ABE /* ECSlidingViewController.m */,
+			);
+			name = ECSlidingViewController;
+			path = ../external/ECSlidingViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,7 +385,9 @@
 				830F2D47182F559400A4B8D6 /* AppDelegate.m in Sources */,
 				8348D1F9183257ED000DE086 /* LoadingViewController.m in Sources */,
 				8348D20318326532000DE086 /* Store.m in Sources */,
+				83606B361837ACD3000E0ABE /* MainViewController.m in Sources */,
 				8348D1FD18325C43000DE086 /* Stores.m in Sources */,
+				83606B321837AABE000E0ABE /* ECSlidingViewController.m in Sources */,
 				830F2D50182F559400A4B8D6 /* ListViewController.m in Sources */,
 				830F2D43182F559400A4B8D6 /* main.m in Sources */,
 			);
@@ -367,6 +398,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8348D1FE18325C43000DE086 /* Stores.m in Sources */,
+				83606B371837ACD3000E0ABE /* MainViewController.m in Sources */,
+				83606B331837AABE000E0ABE /* ECSlidingViewController.m in Sources */,
 				830F2D68182F559400A4B8D6 /* icecreamTests.m in Sources */,
 				8348D1FA183257ED000DE086 /* LoadingViewController.m in Sources */,
 				8348D20418326532000DE086 /* Store.m in Sources */,

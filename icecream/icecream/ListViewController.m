@@ -6,6 +6,7 @@
 //  Copyright (c) 2013年 gegorer. All rights reserved.
 //
 
+#import "ECSlidingViewController.h"
 #import "ListViewController.h"
 #import "MapViewController.h"
 #import "Stores.h"
@@ -20,6 +21,21 @@
 @synthesize storeSearchBar;
 
 NSArray *stores;
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    if (![self.slidingViewController.underLeftViewController isKindOfClass:[ListViewController class]]) {
+        self.slidingViewController.underLeftViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"StoreMap"];
+    }
+    self.slidingViewController.shouldAddPanGestureRecognizerToTopViewSnapshot = YES;
+    [self.view addGestureRecognizer:self.slidingViewController.panGesture];
+    [self.slidingViewController setAnchorRightPeekAmount:40.0f];
+    self.view.layer.shadowOpacity = 0.75f;
+    self.view.layer.shadowRadius = 10.0f;
+    self.view.layer.shadowColor = [UIColor blackColor].CGColor;
+}
 
 - (void)viewDidLoad
 {
@@ -54,9 +70,13 @@ NSArray *stores;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     Store *store = [stores objectAtIndex:indexPath.row];
-    MapViewController *vc = (MapViewController *)[self.tabBarController.viewControllers objectAtIndex:1];
+    MapViewController *vc = (MapViewController *)self.slidingViewController.underLeftViewController;
+    if (vc == nil) {
+        return;
+    }
     [vc centerAtLat:store.lat andLon:store.lon];
-    self.tabBarController.selectedViewController = vc;
+    [self.slidingViewController anchorTopViewTo:ECRight];
+    //self.tabBarController.selectedViewController = vc;
 }
 
 #pragma UISearchBarDelegate

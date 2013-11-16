@@ -5,10 +5,28 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="hWM-2E-zCn">
+            <objects>
+                <viewController id="xL1-yi-xe9" customClass="MainViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vvD-2L-ZlV"/>
+                        <viewControllerLayoutGuide type="bottom" id="8DQ-Ct-RF0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gMA-Mp-DaJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xoH-gT-aq8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="191" y="180"/>
+        </scene>
         <!--List View Controller - First-->
         <scene sceneID="W3I-pn-N6e">
             <objects>
-                <viewController title="First" id="CZ4-MO-1fc" customClass="ListViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StoreList" title="First" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CZ4-MO-1fc" customClass="ListViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PpG-0F-yly"/>
                         <viewControllerLayoutGuide type="bottom" id="SrZ-vf-R6f"/>
@@ -50,12 +68,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qh2-T1-AhA" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="645" y="-186"/>
+            <point key="canvasLocation" x="693" y="180"/>
         </scene>
         <!--Map View Controller - Second-->
         <scene sceneID="ot8-2e-RuS">
             <objects>
-                <viewController title="Second" id="QUy-BD-bpt" customClass="MapViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StoreMap" title="Second" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QUy-BD-bpt" customClass="MapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wKJ-e0-JyA"/>
                         <viewControllerLayoutGuide type="bottom" id="NGB-jL-ER0"/>
@@ -94,7 +112,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qq-4t-Ow8" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="645" y="529"/>
+            <point key="canvasLocation" x="1185" y="180"/>
         </scene>
         <!--Loading View Controller-->
         <scene sceneID="y7N-cT-fen">
@@ -122,31 +140,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="8YX-ce-x5E" kind="modal" identifier="loadCompleteSegue" modalTransitionStyle="crossDissolve" id="Yzu-dk-Zdf"/>
+                        <segue destination="xL1-yi-xe9" kind="modal" identifier="loadCompleteSegue" id="FlC-gk-35H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PRp-TK-kVX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-274" y="180"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="Vex-rW-GRa">
-            <objects>
-                <tabBarController id="8YX-ce-x5E" sceneMemberID="viewController">
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="JQR-rB-NYL">
-                        <rect key="frame" x="0.0" y="431" width="320" height="49"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="CZ4-MO-1fc" kind="relationship" relationship="viewControllers" id="SUk-Ux-ee1"/>
-                        <segue destination="QUy-BD-bpt" kind="relationship" relationship="viewControllers" id="M8t-EP-wfW"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="132" y="180"/>
         </scene>
     </scenes>
     <resources>
