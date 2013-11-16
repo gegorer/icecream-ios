@@ -6,12 +6,13 @@
 //  Copyright (c) 2013年 gegorer. All rights reserved.
 //
 
+#import <CoreLocation/CLLocation.h>
 #import <Foundation/Foundation.h>
 
 @interface Stores : NSObject
 
 + (Stores *) singleton;
 - (void) checkData;
-- (NSArray *) fetchWithKeyword:(NSString *)aKeyword;
+- (NSArray *) fetchWithKeyword:(NSString *)aKeyword andRef:(CLLocation *)aLoc;
 
 @end

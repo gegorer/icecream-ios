@@ -43,7 +43,7 @@
     [self.view addSubview:mapView];
     
     // TODO: load async
-    NSArray *stores = [[Stores singleton] fetchWithKeyword:nil];
+    NSArray *stores = [[Stores singleton] fetchWithKeyword:nil andRef:nil];
     for (int i=0; i<[stores count]; i++) {
         Store *store = [stores objectAtIndex:i];
         

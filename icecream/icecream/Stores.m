@@ -32,10 +32,12 @@ static Stores *_stores = nil;
 }
 
 - (void) checkData {
-    [self fetchData];
+    if (stores == nil || [stores count] == 0) {
+        [self fetchData];
+    }
 }
 
-- (NSArray *) fetchWithKeyword:(NSString *)aKeyword {
+- (NSArray *) fetchWithKeyword:(NSString *)aKeyword andRef:(CLLocation *)aLoc{
     NSMutableArray *array = [[NSMutableArray alloc] init];
     for (int i=0; i<[stores count]; i++) {
         Store *store = [stores objectAtIndex:i];
@@ -56,7 +58,30 @@ static Stores *_stores = nil;
         }
         [array addObject: store];
     }
-    return array;
+    
+    NSArray *sortedArray = nil;
+    if (aLoc != nil) {
+        sortedArray = [array sortedArrayUsingComparator:^NSComparisonResult(id a, id b){
+            Store *storeA = (Store *)a;
+            Store *storeB = (Store *)b;
+            CLLocation *locA = [[CLLocation alloc] initWithLatitude:storeA.lat longitude:storeA.lon];
+            CLLocation *locB = [[CLLocation alloc] initWithLatitude:storeB.lat longitude:storeB.lon];
+            CLLocationDistance disA = [aLoc distanceFromLocation:locA];
+            CLLocationDistance disB = [aLoc distanceFromLocation:locB];
+            
+            if (disA > disB)
+                return NSOrderedDescending;
+            else if (disA < disB)
+                return NSOrderedAscending;
+            else
+                return NSOrderedSame;
+            
+        }];
+    }
+    else {
+        sortedArray = array;
+    }
+    return sortedArray;
 }
 
 - (void) createDatabase {

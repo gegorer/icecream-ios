@@ -6,13 +6,18 @@
 //  Copyright (c) 2013年 gegorer. All rights reserved.
 //
 
+#import <CoreLocation/CLLocationManager.h>
 #import "ECSlidingViewController.h"
 #import "ListViewController.h"
 #import "MapViewController.h"
 #import "Stores.h"
 #import "Store.h"
 
-@interface ListViewController ()
+@interface ListViewController () {
+    CLLocationManager *locationManager;
+    CLLocation *refLocation;
+    NSString *keyword;
+}
 @end
 
 @implementation ListViewController
@@ -40,7 +45,14 @@ NSArray *stores;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    stores = [[Stores singleton] fetchWithKeyword:nil];
+    refLocation = nil;
+    locationManager = [[CLLocationManager alloc] init];
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
+    locationManager.distanceFilter = kCLDistanceFilterNone;
+    locationManager.activityType = CLActivityTypeFitness;
+    [locationManager startUpdatingLocation];
+    stores = [[Stores singleton] fetchWithKeyword:nil andRef:refLocation];
 }
 
 - (void)didReceiveMemoryWarning
@@ -76,21 +88,35 @@ NSArray *stores;
     }
     [vc centerAtLat:store.lat andLon:store.lon];
     [self.slidingViewController anchorTopViewTo:ECRight];
-    //self.tabBarController.selectedViewController = vc;
 }
 
 #pragma UISearchBarDelegate
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     if (searchText != nil && ![searchText isEqualToString:@""]) {
-        stores = [[Stores singleton] fetchWithKeyword:searchText];
+        keyword = searchText;
     }
     else {
-        stores = [[Stores singleton] fetchWithKeyword:nil];
+        keyword = nil;
     }
+    stores = [[Stores singleton] fetchWithKeyword:keyword andRef:refLocation];
     [storeList reloadData];
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [searchBar resignFirstResponder];
+}
+
+#pragma CLLocationManagerDelegate
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    refLocation = [locations objectAtIndex:[locations count]-1];
+    NSLog(@"received location %f %f", refLocation.coordinate.latitude, refLocation.coordinate.longitude);
+    // stop update to save power
+    [locationManager stopUpdatingLocation];
+    
+    MapViewController *vc = (MapViewController *)self.slidingViewController.underLeftViewController;
+    [vc centerAtLat:refLocation.coordinate.latitude andLon:refLocation.coordinate.longitude];
+    
+    stores = [[Stores singleton] fetchWithKeyword:keyword andRef:refLocation];
+    [storeList reloadData];
 }
 @end
